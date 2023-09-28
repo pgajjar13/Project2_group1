@@ -34,10 +34,14 @@ def welcome():
 
 @app.route("/data")
 def toronto_thefts_data():
-    with open('Bicycle_Thefts_Open_Data.geojson') as data: 
-        geo=json.load(data)
-    return jsonify(geo)
+    
+    results=session.execute('select * from info').all()
+    bicycle_thefts=[]
+    for incidents in results: 
+        thefts = dict(incidents)
+        bicycle_thefts.append(thefts)
 
+    return jsonify(bicycle_thefts)
 
 if __name__ == '__main__':
     app.run(debug=True)
