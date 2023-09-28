@@ -3,10 +3,17 @@ body {
   margin: 0;
 }
 
-#map,
 body,
 html {
   height: 100%;
+}
+
+#map {
+  position: absolute;
+  height: 80vh;
+  width: 100vw;
+  top: 100px;
+  left: 0px;
 }
 
 .info {
