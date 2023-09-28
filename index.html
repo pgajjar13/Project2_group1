@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Bicycle Thefts in Toronto</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
   <!-- Leaflet JavaScript code -->
   <script src="https://unpkg.com/leaflet@1.3.3/dist/leaflet.js"
@@ -22,11 +23,37 @@
 </head>
 
 <body>
+  <div class="container">
+    <div class="row"></div>
+      <div class="col-md-12 jumbotron text-center">
+          <img
+        src="https://static.wixstatic.com/media/be6c38_940dabdce28d458f8ba4316cb4381631~mv2.jpg/v1/fill/w_925,h_615,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/be6c38_940dabdce28d458f8ba4316cb4381631~mv2.jpg"
+        width="600"
+        height="337"
+        style="width: 300px; height: 200px;"/>
+          <h1>Bicycle Thefts in Toronto</h1>
+          <p>Use the interactive charts below to explore the dataset</p>
+      </div>
 
-  <!-- The div that holds our map (maybe in a button)-->
-  <div id="tables"></div>
-    <div id="map-id"></div>
 
+    <!--interative dashboard-->
+    <div class="container overflow-hidden text-center">
+        <a href="http://127.0.0.1:5000/data"> Toronto Theft data</a> <br><br>
+      
+        <label id="search"> Enter a Hood: [<input type="text" id="userInput" placeholder="Neighbourhood">] </label>
+        <select id="selDataset" onchange="optionChanged(this.value)"></select>
+        <button id="myButton" onclick="zoomMap(//code)">Zoom In</button>
+    </div> <br>
+
+    <div class="container overflow-hidden text-center">
+      <button class="maptab" >MAP </button>
+      <button class="chartstab" >CHARTS </button>
+    </div>
+    
+  
+
+
+  </div>
   <!-- Our JavaScript file -->
   <script type="text/javascript" src="static/js/logic.js"></script>
 
