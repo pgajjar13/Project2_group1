@@ -28,9 +28,8 @@ This code is designed to interact with an SQLite database containing information
         console.log("Executing: ", queryStatement)
         const result = db.exec(queryStatement);
         console.log(result[0].values.slice(0,10));
-    });
+    });```
 
-```
 ```let makeMapButton = document.getElementById('visualize');
     makeMapButton.addEventListener('click', function() {
         // Your own logic to fetch data from SQLite
@@ -45,8 +44,7 @@ INNER JOIN (
 ) latlnginfo ON info.NEIGHBOURHOOD_158= latlnginfo.NEIGHBOURHOOD
 WHERE STATUS = 'STOLEN'
 GROUP BY NEIGHBOURHOOD_158;
-`);
-        ```
+`);```
 
 ### Visualizing Data on a Map
  Create an HTML element (e.g., `<div id="map"></div>`) where the map will be displayed.
@@ -67,9 +65,8 @@ let myMap = L.map("map", {
             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         }).addTo(myMap);
 ```
-## circles assign colors based on the count of stolen bikes
-```
-result[0].values.forEach(function(item){
+### circles assign colors based on the count of stolen bikes
+```result[0].values.forEach(function(item){
             // console.log(item);
             let neighbourhood = item[0];
             let stolenCount = item[1];
@@ -82,14 +79,12 @@ result[0].values.forEach(function(item){
                 fillColor: getColor(stolenCount),
                 fillOpacity: 1,
             }).bindPopup(`<h1>${neighbourhood}</h1> <hr> <h3>Stolen count: ${stolenCount}</h3>`).addTo(myMap);
-        });
-        ```
+        });```
 
 ### Color Legend
-
 The code provides a color legend to represent different ranges of stolen bikes counts. The legend will be displayed in the bottom-right corner of the map.
-```
-var legend = L.control({position: 'bottomright'});
+
+```var legend = L.control({position: 'bottomright'});
 
         legend.onAdd = function (myMap) {
 
@@ -120,17 +115,12 @@ function getColor(count) {
     if (count <= 50) {
         return "#9bf541"
     } else if (count <= 150) {
-        return "#dcf238"
-```
+        return "#dcf238"```
 
 ## Dependencies
 
 - This code relies on the [Leaflet](https://leafletjs.com/) library for map visualization.
 - It also utilizes [SQL.js](https://github.com/sql-js/sql.js) for working with SQLite databases in the browser.
 
-## Additional Information
-
-- The database should have a table named `info` with columns `STATUS`, `NEIGHBOURHOOD_158`, `LONG_WGS84`, and `LAT_WGS84`.
-- The `getStatus` function is used to assign colors based on the count of stolen bikes.
 
 
