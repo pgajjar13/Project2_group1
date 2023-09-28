@@ -121,7 +121,7 @@ function getColor(count) {
         return "#9bf541"
     } else if (count <= 150) {
         return "#dcf238"
-        ```
+```
 
 ## Dependencies
 
