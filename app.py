@@ -38,10 +38,10 @@ def toronto_thefts_data():
     return jsonify(bicycle_thefts)
 
 @app.route('/hood')
-def return_boroughs():
-    with open('Resources/Bicycle_Thefts_Open_Data.geojson') as f: 
-        geo=json.load(f)
-    return jsonify(geo)
+def toronto_hoods():
+    with open('Resources/Bicycle_Thefts_Open_Data.geojson') as file_online: 
+        file_d=json.load(file_online)
+    return jsonify(file_d)
 
 @app.route("/")
 def home():
