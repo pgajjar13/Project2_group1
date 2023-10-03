@@ -1,6 +1,12 @@
 # Project2_group1
 Understanding Bicycle Theft Patterns in Toronto
 
+# Members of the Group 
+Sanjeev Chiplunkar
+Sughra Shdab
+Priyanshi Gajjar
+Jihye Yoon
+
 # Overview
 This code is designed to interact with an SQLite database containing information about stolen bicycle in Toronto. It provides functionality to load the database from a file, execute custom SQL queries, and visualize the data on a map.
 
