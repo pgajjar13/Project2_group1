@@ -6,15 +6,16 @@
 }
 
 #bar {
-    position: absolute;
+    
     left: 810px;
     top: 0;
     height: 500px;
     width: 720px;
 }
 
-#bar1 {
-    left: 410px;
+#line {
+    
+    left: 610px;
     top: 1820;
     height: 500px;
     width: 720px;

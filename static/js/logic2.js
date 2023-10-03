@@ -10,10 +10,21 @@ d3.json('/data').then(function(data){
        console.log(hood);
        
 
+       let main_hoods = ['Yonge-Bay Corridor', 'Downtown Yonge East', 'Wellington Place', 'St Lawrence-East Bayfront-The Islands', 'Annex'];
+       function hoodCount(main_hoods){
+           let count = 0;
 
+           data.forEach((hoodbike) => {
+               if (hoodbike.NEIGHBOURHOOD_158 == main_hoods){
+                   count += 1;
+               };
+           });
+           return count;
+       
+        };   
+        
 
         // bar chart
-
         var weekdays = {"Monday":0, "Tuesday":0, "Wednesday":0, "Thursday":0, "Friday":0, "Saturday":0, "Sunday":0};
         data.forEach((bike) => {
             if (moment(bike.OCC_DATE).format("dddd") == "Monday") {
@@ -33,7 +44,7 @@ d3.json('/data').then(function(data){
             }
         });    
 
-        
+                
 
         console.log(Object.keys(weekdays));
         console.log(Object.values(weekdays));
@@ -53,12 +64,10 @@ d3.json('/data').then(function(data){
                 size: 12
             },
         };
-        
+                
         Plotly.newPlot("bar", weekData, layout);
-
-        
-        
-        // line chart
+            
+            
 
         var month = {"January":0, "February":0, "March":0, "April":0, "May":0, "June":0, "July":0,"August":0, "September":0, "October":0, "November":0, "December":0 };
         data.forEach((bike) => {
@@ -92,6 +101,8 @@ d3.json('/data').then(function(data){
         console.log(Object.keys(month));
         console.log(Object.values(month));
 
+                
+
         var monthData = [{
             type: "line", 
             x: Object.keys(month), 
@@ -107,8 +118,40 @@ d3.json('/data').then(function(data){
                 size: 12
             },
         };
+                
+        Plotly.newPlot("line", monthData, layout_m);
         
-        Plotly.newPlot("bar1", monthData, layout_m);
         
-    });   
-});        
+
+        let countYonge = hoodCount("Yonge-Bay Corridor");
+        let countDt = hoodCount("Downtown Yonge East");
+        let countWell = hoodCount("Wellington Place");
+        let countBayfront = hoodCount("St Lawrence-East Bayfront-The Islands");
+        let countAnnex = hoodCount("Annex");       
+          
+        let countArray = [countYonge, countDt, countWell, countBayfront, countAnnex]
+
+        var barData = [{
+            type: 'bar',
+            y: main_hoods,
+            x: countArray,
+            orientation: "h", 
+            marker: {color: "rgb(80, 100, 172)"}
+        }];
+        var barLayout = {
+            title: {text: "Top 5 Neighbourhoods"},
+            yaxis: {automargin: true},
+            xaxis: {title: "Thefts", showgrid: false},
+            font: {
+                color: "black", 
+                family: "'cursive",
+                size: 12
+            },
+        };
+        Plotly.newPlot("bar2", barData, barLayout);
+  
+
+    });    
+});                
+
+            

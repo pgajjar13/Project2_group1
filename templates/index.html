@@ -34,7 +34,7 @@
         height="337"
         style="width: 300px; height: 200px;"/>
           <h1>Bicycle Thefts in Toronto</h1>
-          <p>Use the interactive charts below to explore the dataset</p>
+          <p>explore the dataset</p>
       </div>
      
     <div class="row">
@@ -47,18 +47,25 @@
         <br>
         <button type="button" id="make-query">Query now!</button>
         <button type="button" id="visualize">Visualize now!</button><br>
-
+      <div class="row">
+      </div>    
       <div class="row">
         <div class="col-md-5">
           <div id="bar"></div>
-      </div>  
+        </div>  
+      </div>
       <div class="row">
-          <div class="col-md-12">
-            <div id="bar1"></div>
+          <div class="col-md-10">
+            <div id="line"></div>
           </div>
       </div>
-
+      <div class="row">
+        <div class="col-md-12">
+          <div id="bar2"></div>
+        </div>
       </div>
+
+      
    
     
   
@@ -68,6 +75,7 @@
   <!-- Our JavaScript file -->
   <script type="text/javascript" src="static/js/logic.js"></script>
   <script type="text/javascript" src="static/js/logic2.js"></script>
+  <script type="text/javascript" src="static/js/logic3.js"></script>
 
   <!-- D3 library -->
   <script src="https://d3js.org/d3.v5.min.js"></script>
