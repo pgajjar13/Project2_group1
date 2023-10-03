@@ -22,16 +22,6 @@ window.onload = function() {
         });
     });
 
-
-    let queryButton = document.getElementById('make-query');
-    queryButton.addEventListener('click', function() {
-        let queryStatement = document.getElementById('query-statement').value;
-        console.log("Executing: ", queryStatement)
-        const result = db.exec(queryStatement);
-        console.log(result[0].values.slice(0,10));
-    });
-
-
     let makeMapButton = document.getElementById('visualize');
     makeMapButton.addEventListener('click', function() {
         // Your own logic to fetch data from SQLite
