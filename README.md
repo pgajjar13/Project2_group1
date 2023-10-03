@@ -20,8 +20,16 @@ This code is designed to interact with an SQLite database containing information
 - Once the app.py is run through the terminal, the website should pop-up under local host
 http://localhost:5000/
 
-- logic2.js
-    - using d3 we created charts (more details later)
+## Charts - Sughra 
+ using d3 we created three different charts (logic2.js)
+- Line Chart
+  "Bike Stolen - By day of the week",
+  
+- Bar Chart
+  "Bike Stolen - By Month"
+  
+- Bubble Charts
+  "Bike Stolen - By Years"
 
 ### Loading Database - Jihye
 
