@@ -154,7 +154,6 @@ function getColor(count) {
 - Using D3.js, three different charts were created in logic2.js:
        
         (1) Line Chart: Displays "Bike Stolen - By Day of the Week" : tracking theft trends over weekdays graphically.
-  
        ![newplot](https://github.com/pgajjar13/Project2_group1/assets/135158002/632677ae-8679-4057-86a6-a1822dac4afe)
 
         (2) Bar Chart: Shows "Bike Stolen - By Month" : showcasing monthly bike theft statistics in a graphical format.
