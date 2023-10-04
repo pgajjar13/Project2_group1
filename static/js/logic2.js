@@ -22,6 +22,35 @@ d3.json('/data').then(function(data){
            return count;
        
         };   
+
+        // Create the bubble chart
+        function bubble(selectedValue) {
+                   
+        // Fetch the JSON data and console log it
+         d3.json('/data').then(function(data){
+           
+             let Neighbourhoods_158 = data.NEIGHBOURHOOD_158;
+             let filteredData = Neighbourhoods_158.filter((Neighbourhoods_158) => Neighbourhoods_158.id === selectedValue);
+            let obj = filteredData[0];
+                   
+            // Trace for the bubble chart
+            let YearData = [{
+                 x: obj.keys(Years), 
+                y: obj.values(Years), 
+                text: obj.Bike_lable, 
+                mode: "markers",
+                marker: {
+                size: obj.values(month),
+                color: obj.keys,
+                colorscale: "Rainbow"
+            }
+         }];
+            let layout = {
+                xaxis: {title: "Bike Stolen - By Year"}
+            };
+                Plotly.newPlot("bubble", YearData, layout);
+        });
+        }
         
 
         // bar chart
