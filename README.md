@@ -10,52 +10,29 @@ Jihye Yoon
 # Overview
 This code is designed to interact with an SQLite database containing information about stolen bicycle in Toronto. It provides functionality to load the database from a file, execute custom SQL queries, and visualize the data on a map.
 
-# Details - Sanjeev
+# Steps
 
-- cleaned the data using Pandas 
-    - Downloaded the data from the Toronto Police open data (https://data.torontopolice.on.ca/pages/open-data)
+1. Obtaining the Data: The database is sourced from the Toronto Police open data, which can be found here.
 
-- loaded it to a database (SQLite)
+2. Loading the Database: The following steps outline how to load the database:
+        (i) Include the logic.js file in your HTML file.
+        (ii) Ensure you have an input element with the ID select-file to allow users to select the SQLite file.
 
-- Created a Flask API
-    - different routes in the flask app
-        - /data, the sqllite data base was loaded
-        - /hood, the geojson file we downloaded
-        - /, the main home page
+'''HTML
+    <input type="file" id="select-file">
 
-- Once the app.py is run through the terminal, the website should pop-up under local host
-http://localhost:5000/
 
-## Charts - Sughra 
- using d3 we created three different charts (logic2.js)
-- Line Chart
-  "Bike Stolen - By day of the week",
-  
-- Bar Chart
-  "Bike Stolen - By Month"
-  
-- Bubble Charts
-  "Bike Stolen - By Years"
-
-### Loading Database - Jihye
-
-1. Include the logic.js file in your HTML file.
-2. Make sure you have an input element with the id `select-file`, which allows users to select the SQLite file.
-3. When a file is selected, the code will load its content and initialize the SQLite database.
-
-```html
-<input type="file" id="select-file">
-```
-
-### Executing Custom Queries
-
-1. Add an input element with the id `query-statement` to provide custom SQL queries.
-2. Use a button (with the id `make-query`) to trigger the execution of the query.
+3. Executing Custom Queries: If you need to run custom SQL queries, follow these steps:
+    (i) Add an input element with the ID query-statement to provide custom SQL queries.
+    (ii) Use a button with the ID make-query to execute the query.
 
 ```html
 <input type="text" id="query-statement">
 <button id="make-query">Execute Query</button>
 ```
+
+'''Javascript
+
 ``` let queryButton = document.getElementById('make-query');
     queryButton.addEventListener('click', function() {
         let queryStatement = document.getElementById('query-statement').value;
@@ -80,28 +57,36 @@ INNER JOIN (
 WHERE STATUS = 'STOLEN'
 GROUP BY NEIGHBOURHOOD_158;
 `);
-        ```
+```
 
-### Visualizing Data on a Map
- Create an HTML element (e.g., `<div id="map"></div>`) where the map will be displayed.
+4.  Visualizing Data on a Map: To visualize the data on a map, follow these steps:
+        (i) Create an HTML element (e.g., <div id="map"></div>) where the map will be displayed.
 
 ```html
 <button id="visualize">Visualize Data</button>
 <div id="map"></div>
 ```
 ```
+javascript
+''
 let myMap = L.map("map", {
         center: [43.65 , -79.38],
         zoom: 12
         });
 ```
-### ADD A TILE LAYER
+
+
+5. Add a Tile Layer
+
 ```
+javascript
+''
  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         }).addTo(myMap);
 ```
-## circles assign colors based on the count of stolen bikes
+6. Circles with Color-Coding: The code below assigns colors to circles based on the count of stolen bikes.
+
 ```
 result[0].values.forEach(function(item){
             // console.log(item);
@@ -117,12 +102,12 @@ result[0].values.forEach(function(item){
                 fillOpacity: 1,
             }).bindPopup(`<h1>${neighbourhood}</h1> <hr> <h3>Stolen count: ${stolenCount}</h3>`).addTo(myMap);
         });
-        ```
-
-### Color Legend
-
-The code provides a color legend to represent different ranges of stolen bikes counts. The legend will be displayed in the bottom-right corner of the map.
 ```
+
+7. Color Legend: The code also provides a color legend to represent different ranges of stolen bike counts, displayed in the bottom-right corner of the map.
+```
+javascript
+'''
 var legend = L.control({position: 'bottomright'});
 
         legend.onAdd = function (myMap) {
@@ -149,13 +134,30 @@ var legend = L.control({position: 'bottomright'});
     });
 }
 
-
 function getColor(count) {
     if (count <= 50) {
         return "#9bf541"
     } else if (count <= 150) {
         return "#dcf238"
-        ```
+```
+
+8. Additional Information: Make sure your database includes a table named info with columns STATUS, NEIGHBOURHOOD_158, LONG_WGS84, and LAT_WGS84. The getStatus function is used to assign colors based on the count of stolen bikes.
+
+# Details 
+
+1. Data Cleaning: Data was cleaned using Pandas and downloaded from the Toronto Police open data here.
+2. The cleaned data was loaded into an SQLite database.
+3. A Flask API was created with different routes, including loading the SQLite database, handling geojson files, and serving the main home page. Running app.py in the terminal opens the website at http://localhost:5000/.
+
+## Charts 
+
+- Using D3.js, three different charts were created in logic2.js:
+       
+        (1) Line Chart: Displays "Bike Stolen - By Day of the Week" : tracking theft trends over weekdays graphically.
+       
+        (2) Bar Chart: Shows "Bike Stolen - By Month" : showcasing monthly bike theft statistics in a graphical format.
+       
+        (3) Bubble Charts: Depicts "Bike Stolen - By Years" : using dynamic bubble charts, depicting theft patterns over multiple years.
 
 ## Dependencies
 
