@@ -163,6 +163,27 @@ function getColor(count) {
 
   ![newplot (2)](https://github.com/pgajjar13/Project2_group1/assets/135158002/5d906909-e439-4cf5-b8fd-30fc2631a9ec)
 
+# Conclusion 
+
+In conclusion, our research has shed light on the significant issue of bicycle theft in Toronto. Through our thorough analysis, we have uncovered several crucial insights:
+
+    (1) Weekly Patterns: We observed that bicycle theft incidents peaked on Fridays, making it the day with the highest occurrence of theft in the city.
+    (2) Monthly Trends: Our analysis highlighted August as the month with the highest number of bicycle thefts, suggesting a seasonal pattern.
+    (3) High-Risk Neighborhood: Among the neighborhoods, Yonge-Bay Corridor emerged as the most vulnerable area for bicycle theft, warranting increased vigilance.
+
+We conclude this project with these valuable findings, which contribute to our understanding of bicycle theft trends in Toronto.
+
+
+## Future Prospect 
+
+Looking ahead, this project holds the potential for further expansion and in-depth analysis. Future research could delve into the underlying reasons behind the observed patterns, helping to inform strategies and interventions to combat bicycle theft more effectively.
+
+# Work Distribution 
+
+1. Sanjeev Chiplunkar: Led data extraction and cleaning, set up the Flask API, and contributed to data visualization.
+2. Sughra Shadab: Played a key role in data visualization, assisted with data cleaning, and contributed to the presentation.
+3. Priyanshi Gajjar: Crafted the project proposal, designed the Read Me file, contributed to website design and visualization, and was instrumental in the presentation.
+4. Jihye Yoon: Assisted in data extraction, created visualizations on maps, and expanded the scope of the project geographically.
 
 ## Dependencies
 
